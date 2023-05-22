@@ -5,7 +5,6 @@ add_button.addEventListener('click', function(e) {
         add_book();
     }
 });
-alert(read.value);
 
 function checkValidity() {
     const arr = [title, author, pages, desc];
@@ -26,5 +25,9 @@ function add_book(e) {
         td.textContent = val.value;
         row.append(td);
     }
-    
+    if (read.value == 'on') {
+        let td2 = document.createElement('td');
+        td2.innerHTML = "<svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' class='w-6 h-6'><path stroke-linecap='round' stroke-linejoin='round' d='M4.5 12.75l6 6 9-13.5' /></svg>"
+        row.append(td2);
+    }
 }
