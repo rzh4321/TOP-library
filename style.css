@@ -17,3 +17,8 @@ textarea {
 form {
     margin: 10px;
 }
+
+.invalid {
+    border: 2px solid red;
+    box-shadow: 0x 0x 5px red;
+}
