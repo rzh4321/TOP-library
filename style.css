@@ -22,3 +22,12 @@ form {
     border: 2px solid red;
     box-shadow: 0x 0x 5px red;
 }
+
+#read-cell.on {
+    background-color: green;
+}
+
+#read-cell {
+    cursor: pointer;
+    background-color: red;
+}
