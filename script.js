@@ -1,3 +1,4 @@
+let id = 0;
 let add_button = document.getElementById('add-book');
 add_button.addEventListener('click', function(e) {
     if (checkValidity()) {
@@ -26,9 +27,16 @@ function switchRead(elem) {
     elem.classList.toggle('on')
 }
 
+function remove_book(id) {
+    let row = document.getElementById(id);
+    row.remove();
+}
+
 function add_book(e) {
+    id += 1;
     let table = document.getElementById('table');
     let row = document.createElement('tr');
+    row.id = id;
     table.append(row);
     const arr = [title, author, desc, pages];
     for (const val of arr) {
@@ -36,7 +44,7 @@ function add_book(e) {
         td.textContent = val.value;
         row.append(td);
     }
-    
+
     let td2 = document.createElement('td');
     td2.id = 'read-cell';
     if (read.checked) {
@@ -52,4 +60,10 @@ function add_book(e) {
         switchRead(td2);
     });
     row.append(td2);
+
+    let remove_btn = document.createElement('button');
+    remove_btn.textContent = 'REMOVE BOOK';
+    remove_btn.addEventListener('click', (e) => remove_book(id));
+
+    row.append(remove_btn);
 }
