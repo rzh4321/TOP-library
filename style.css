@@ -4,6 +4,8 @@ table {
 
 table, th, td {
     border: 1px solid;
+    text-align: center;
+    padding: 5px;
 }
 
 input {
@@ -18,9 +20,14 @@ form {
     margin: 10px;
 }
 
-.invalid {
+input.invalid {
     border: 2px solid red;
     box-shadow: 0x 0x 5px red;
+    border-radius: 5px;
+}
+
+input.invalid:focus {
+    outline: none;
 }
 
 #read-cell.on {
@@ -56,15 +63,3 @@ form {
     display: inline-block;
     margin: 10px;
   }
-
-  th {
-    padding: 5px;
-  }
-
-  table {
-    text-align: center;
-  }
-
-td {
-    padding: 5px;
-}
