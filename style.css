@@ -7,7 +7,7 @@ table, th, td {
 }
 
 input {
-    margin: 10px 5px 20px 5px;
+    margin: 0;
 }
 
 textarea {
@@ -31,3 +31,28 @@ form {
     cursor: pointer;
     background-color: red;
 }
+
+.error {
+    padding: 0;
+  
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+  
+    box-sizing: border-box;
+  }
+  
+  .error.active {
+    padding: 0.3em;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-elem {
+    display: inline-block;
+    margin: 10px;
+  }

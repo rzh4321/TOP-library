@@ -1,4 +1,5 @@
 let id = 0;
+
 let add_button = document.getElementById('add-book');
 add_button.addEventListener('click', function(e) {
     if (checkValidity()) {
@@ -8,11 +9,35 @@ add_button.addEventListener('click', function(e) {
 
 function checkValidity() {
     const arr = [title, author, pages, desc];
-    for (const val of arr) {
-        if (val.value == '') val.classList.add('invalid');
-        else val.classList.remove('invalid');
+    for (const inp of arr) {
+        const error_message = inp.nextElementSibling;
+        error_message.style.width = inp.getBoundingClientRect().width + 'px';
+        if (inp.validity.valueMissing) {
+            error_message.textContent = "This field is required";
+            error_message.classList.add('active');
+        }
+        else if (inp.validity.tooLong) {
+            error_message.textContent = "Cannot exceed";
+            error_message.classList.add('active');
+        }
+        else if (inp.validity.tooShort) {
+            error_message.textContent = "Title cannot be shorter than ";
+            error_message.classList.add('active');
+        }
+        else if (inp.validity.rangeOverflow) {
+            error_message.textContent = "Cannot exceed 10000";
+            error_message.classList.add('active');
+        }
+        else if (inp.validity.rangeUnderflow) {
+            error_message.textContent = "Cannot be less than 1";
+            error_message.classList.add('active');
+        }
+        else {
+            error_message.textContent = "";
+            error_message.classList.remove('active');
+        }
     }
-    return title.value != '' && author.value != '' && pages.value != '' && desc.value != '';
+    return form.checkValidity();
 }
 
 function switchRead(elem) {

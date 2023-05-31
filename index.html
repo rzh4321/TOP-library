@@ -12,23 +12,42 @@
     <form id='form'>
         <fieldset>
             <legend>Add Book</legend>
-            <label for="title">Title:</label>
-            <input type="text" id="title">
+            <div class="form-elem">
+                <label for="title">
+                    *Title:
+                    <input type="text" id="title" minlength="5" maxlength="10" required>
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
 
-            <label for="author">Author:</label>
-            <input type="text" id="author">
+            <div class="form-elem">
+                <label for="author">*Author:
+                    <input type="text" id="author" minlength="5" maxlength="10" required>
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
 
-            <label for="pages">Pages:</label>
-            <input type="number" id="pages">
+            <div class="form-elem">
+                <label for="pages">*Pages:
+                    <input type="number" id="pages" min="1" max="10000" required>
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
 
-            <label for="read">Read?</label>
-            <input type="checkbox" id="read">
+            <div class="form-elem">
+                <label for="read" class="checkbox" style="gap: 5px;">Read?
+                    <input type="checkbox" id="read">
+                </label>
+            </div>
 
-            <br>
-            <label for="desc">Description:</label>
-            <textarea id="desc" cols="30" rows="10" required></textarea>
+            <div class="form-elem">
+                <label for="desc">Description:
+                    <textarea id="desc" cols="30" rows="10" maxlength="10"></textarea>
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </div>
 
-            <button id="add-book" type="button">Add Book</button>
+            <button id="add-book" type="button" style="position: relative; top: 20px;">Add Book</button>
         </fieldset>
 
     </form>
